@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <body>
+        <%- include('../includes/home.ejs') %>
+            <main>
+                <article>
+                    <h2>
+                        <%= country.country %>
+                    </h2>
+                    <p>
+                        <%= country.avgWage %>
+                            <%= country.currency %>
+                    </p>
+                    <% if(loggedIn) { %>
+                        <form action="/admin/delete-country/<%=country._id%>" method="POST">
+                            <button type="submit">Delete Country</button>
+                        </form>
+                        <%} %>
+                            <% for (let car of country.cars) {%>
+                                <h3>
+                                    <%= car.model %>
+                                </h3>
+                                <p>
+                                    <%= car.price %>
+                                        <%=country.currency%>
+                                </p>
+                                <% if (loggedIn) { %>
+                                    <form action="/admin/delete-car/<%=car._id%>" method="POST">
+                                        <input type="hidden" name="countryId" value="<%=country._id%>">
+                                        <button type="submit">Delete Car</button>
+                                    </form>
+                                    <% }%>
+                                        <% } %>
+
+                </article>
+            </main>
+    </body>
+
+    </html>

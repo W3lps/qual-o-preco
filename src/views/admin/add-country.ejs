@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <body>
+        <%- include('../includes/home.ejs') %>
+            <main>
+                <form action="/admin/add-country" method="POST">
+                    <label for="country">Nome do país:</label>
+                    <input type="text" name="country">
+                    <label for="currency">Moeda do país:</label>
+                    <input type="text" name="currency">
+                    <label for="avgWage">Média salarial:</label>
+                    <input type="number" name="avgWage">
+                    <button type="submit">Adicionar País</button>
+                </form>
+            </main>
+    </body>
 
-<body>
-    <main>
-        <form action="/add-country" method="POST">
-            <label for="country">Nome do país:</label>
-            <input type="text" name="country">
-            <label for="currency">Moeda do país:</label>
-            <input type="text" name="currency">
-            <label for="avgWage">Média salarial:</label>
-            <input type="number">
-            <button type="submit">Adicionar País</button>
-        </form>
-    </main>
-</body>
-
-</html>
+    </html>

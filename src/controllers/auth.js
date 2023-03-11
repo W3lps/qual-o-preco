@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 
 const User = require('../models/user');
-const errorHandler = require('../helpers/errorHandler');
 
 //the signup routes are not available on purpose
 exports.signupPage = (req, res) => {
@@ -25,11 +24,11 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.loginPage = (req, res, next) => {
-  res.render('auth/login');
+exports.loginPage = (_, res) => {
+  res.render('auth/login', { pageTitle: 'Login' });
 };
 
-exports.login = async (req, res, next) => {
+exports.login = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -42,7 +41,9 @@ exports.login = async (req, res, next) => {
 
     req.session.isLoggedIn = true;
     req.session.user = user;
-    req.session.save(err => console.log(err));
+    req.session.save(err => {
+      if (err) console.log(err);
+    });
     res.redirect('/');
   } catch (err) {
     throw new Error(err);
@@ -51,7 +52,7 @@ exports.login = async (req, res, next) => {
 
 exports.logout = (req, res, next) => {
   req.session.destroy(err => {
-    console.log(err);
+    if (err) console.log(err);
     res.redirect('/');
   });
 };

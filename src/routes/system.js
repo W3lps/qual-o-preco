@@ -6,4 +6,8 @@ const systemController = require('../controllers/system');
 
 router.get('/', systemController.indexPage);
 
+router.get('/see-countries', systemController.seeCountriesPage);
+
+router.get('/country-details/:countryId', systemController.countryDetailsPage);
+
 module.exports = router;

@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <body>
+        <%- include('../includes/home.ejs') %>
+            <main>
+                <form action="/admin/add-car" method="POST">
+                    <select name="country" id="country">
+                        <option value="">Selecione um país</option>
+                        <% for(let country of countries) { %>
+                            <option value="<%= country.country %>">
+                                <%= country.country %>
+                            </option>
+                            <% } %>
+                    </select>
+                    <label for="model">Modelo do Carro:</label>
+                    <input type="text" name="model" id="model">
+                    <label for="price">Preço do Carro:</label>
+                    <input type="number" name="price" id="price">
+                    <button type="submit">Adicionar carro</button>
+                </form>
+            </main>
+    </body>
 
-<body>
-
-</body>
-
-</html>
+    </html>
