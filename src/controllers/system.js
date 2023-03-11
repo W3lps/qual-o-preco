@@ -1,3 +1,3 @@
-const Car = require('../models/car');
+const Car = require('../models/country');
 
 exports.indexPage = (req, res, next) => {};
