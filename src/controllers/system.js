@@ -1,7 +1,8 @@
 const Country = require('../models/country');
 
-exports.indexPage = (req, res, next) => {
-  res.render('system/index', { pageTitle: 'Home' });
+exports.indexPage = async (req, res, next) => {
+  const countries = await Country.find();
+  res.render('system/index', { pageTitle: 'Home', countries: countries });
 };
 
 exports.seeCountriesPage = async (req, res, next) => {
