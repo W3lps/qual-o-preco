@@ -14,9 +14,12 @@
                             <%= country.currency %>
                     </p>
                     <% if(loggedIn) { %>
-                        <form action="/admin/delete-country/<%=country._id%>" method="POST">
-                            <button type="submit">Delete Country</button>
-                        </form>
+                        <div class="">
+                            <form action="/admin/delete-country/<%=country._id%>" method="POST">
+                                <button type="submit">Delete Country</button>
+                            </form>
+                            <a href="/admin/update-country/<%=country._id%>">Atualizar Dados</a>
+                        </div>
                         <%} %>
                             <% for (let car of country.cars) {%>
                                 <img src="/<%=car.imagePath %>" alt="Foto do Carro">

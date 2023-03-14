@@ -1,0 +1,21 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <body>
+        <%- include('../includes/home.ejs') %>
+            <main>
+                <form action="/admin/update-country" method="POST">
+                    <label for="newCountry">Nome do país:</label>
+                    <input type="text" name="newCountryName" value="<%= country.country%>">
+                    <label for="newCurrency">Moeda do país:</label>
+                    <input type="text" name="newCurrency" value="<%= country.currency%>">
+                    <label for="newAvgWage">Média salarial:</label>
+                    <input type="number" name="newAvgWage" value="<%= country.avgWage%>">
+                    <input type="hidden" name="countryId" value="<%= country._id %>">
+                    <button type="submit">Atualizar dados do País</button>
+                </form>
+            </main>
+    </body>
+
+    </html>
