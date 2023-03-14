@@ -17,10 +17,15 @@ exports.addCar = async (req, res, next) => {
   const selectedCountry = req.body.country;
   const model = req.body.model;
   const price = req.body.price;
+  const image = req.file;
+  const imagePath = image.path;
 
   try {
     const country = await Country.findOne({ country: selectedCountry });
-    country.cars = [...country.cars, { model: model, price: price }];
+    country.cars = [
+      ...country.cars,
+      { model: model, price: price, imagePath: imagePath },
+    ];
     await country.save();
     console.log(country);
   } catch (err) {

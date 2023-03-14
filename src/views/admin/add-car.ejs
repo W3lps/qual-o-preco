@@ -5,7 +5,7 @@
     <body>
         <%- include('../includes/home.ejs') %>
             <main>
-                <form action="/admin/add-car" method="POST">
+                <form action="/admin/add-car" method="POST" enctype="multipart/form-data">
                     <select name="country" id="country">
                         <option value="">Selecione um país</option>
                         <% for(let country of countries) { %>
@@ -18,6 +18,8 @@
                     <input type="text" name="model" id="model">
                     <label for="price">Preço do Carro:</label>
                     <input type="number" name="price" id="price">
+                    <label for="image">Selecione a imagem do carro</label>
+                    <input type="file" name="image" id="image">
                     <button type="submit">Adicionar carro</button>
                 </form>
             </main>

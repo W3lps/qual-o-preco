@@ -19,6 +19,10 @@
                         </form>
                         <%} %>
                             <% for (let car of country.cars) {%>
+                                <img src="/<%=car.imagePath %>" alt="Foto do Carro">
+                                <p>
+                                    <%=car.imagePath %>
+                                </p>
                                 <h3>
                                     <%= car.model %>
                                 </h3>

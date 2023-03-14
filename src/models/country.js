@@ -25,6 +25,10 @@ const countrySchema = new Schema({
         type: Number,
         required: true,
       },
+      imagePath: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });
